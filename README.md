@@ -21,3 +21,12 @@ npm install body-parser
 
 AVA est un framework de test pour JavaScript, utilisé principalement pour les tests unitaires dans les projets Node.js
 npm install ava 
+
+npm install @babel/core @babel/node @babel/preset-env --save-dev
+ 
+  "main": "server.js",
+
+  "scripts": {
+    "start": "nodemon --exec babel-node server.js",
+    "test": "ava"
+  },
