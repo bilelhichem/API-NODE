@@ -9,7 +9,9 @@ Ce projet est un exemple simple montrant comment utiliser Express avec Babel et 
 Pour installer les dépendances, exécutez les commandes suivantes :
 
 npm install express
-npm install --save-dev @babel/core // ce qui signifie qu'il permet de convertir le code écrit dans une version récente de JavaScript (ES6+ par exemple) en une version plus ancienne
+
+ce qui signifie qu'il permet de convertir le code écrit dans une version récente de JavaScript (ES6+ par exemple) en une version plus ancienne
+npm install --save-dev @babel/core 
 Créez un fichier babel.config.json à la racine de votre projet et ajoutez le contenu suivant :
 {
     "presets": ["@babel/preset-env"]
