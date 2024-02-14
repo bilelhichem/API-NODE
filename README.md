@@ -1,4 +1,5 @@
-# Mon Projet
+
+# API NODE JS
 
 Ce projet est un exemple simple montrant comment utiliser Express avec Babel et Body-Parser.
 
@@ -6,9 +7,8 @@ Ce projet est un exemple simple montrant comment utiliser Express avec Babel et 
 
 Pour installer les dépendances, exécutez les commandes suivantes :
 
-```bash
 npm install express
-npm install --save-dev @babel/core
+npm install --save-dev @babel/core // ce qui signifie qu'il permet de convertir le code écrit dans une version récente de JavaScript (ES6+ par exemple) en une version plus ancienne
 Créez un fichier babel.config.json à la racine de votre projet et ajoutez le contenu suivant :
 {
     "presets": ["@babel/preset-env"]
@@ -16,3 +16,5 @@ Créez un fichier babel.config.json à la racine de votre projet et ajoutez le c
 
 npm install body-parser
 
+AVA est un framework de test pour JavaScript, utilisé principalement pour les tests unitaires dans les projets Node.js
+npm install ava 
