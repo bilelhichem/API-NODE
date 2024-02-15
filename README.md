@@ -30,3 +30,9 @@ npm install @babel/core @babel/node @babel/preset-env --save-dev
     "start": "nodemon --exec babel-node server.js",
     "test": "ava"
   },
+
+
+// libary de http install : npm install http-status-codes --save
+
+
+// La bibliothèque body-parser dans Node.js est utilisée pour analyser les corps des requêtes HTTP entrantes
