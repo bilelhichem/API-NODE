@@ -36,3 +36,26 @@ npm install @babel/core @babel/node @babel/preset-env --save-dev
 
 
 // La bibliothèque body-parser dans Node.js est utilisée pour analyser les corps des requêtes HTTP entrantes
+ 
+ npm i helmet
+
+// Ce module est utilisé principalement dans des applications web Node.js pour renforcer la sécurité en configurant divers en-têtes HTTP
+
+npm i express-rate-limit
+
+// Le package npm "express-rate-limit" est un middleware pour Express.js qui permet de limiter le nombre de requêtes par adresse IP ou d'autres critères. Cela est particulièrement utile pour protéger votre serveur contre les attaques par déni de service . 
+
+exemple utilisation :
+
+const rateLimit = require('express-rate-limit');
+
+const app = express();
+
+// Limiter le nombre de requêtes à 100 par heure (3600 * 1000 millisecondes)
+const limiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 heure
+  max: 100 // Limite de 100 requêtes par IP
+});
+
+// Appliquer le middleware rate limiter à toutes les requêtes
+app.use(limiter);

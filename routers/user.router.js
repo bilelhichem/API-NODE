@@ -1,6 +1,6 @@
 const router = require("express").Router();
 import {OK, StatusCodes} from 'http-status-codes';
-import userservice from '../services/user.service';
+const userservice  = require('../services/user.service') ;
 
 
 const Status ={
@@ -17,7 +17,7 @@ router.get('/',(req,res)=>{
 
 router.post('/add',(req,res)=>{
    const {body  : user} = req ; 
-   const addUserService = userservice.addUser(req);
+   const  addUserService =  userservice.addUser(req);
    if (!body.name) {
      return res.status({
         status : Status.failure , 

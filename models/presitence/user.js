@@ -1,53 +1,79 @@
-import users from "../data/user.model";
+const users = require( "../data/user.model");
 
+const get = (userId) => users.find((user) => user.id === userId);
 
+const getAll = () => users;
 
-const insert = (details)=>{
-    const newUser = {...details , id: users.length +1};
-    users.push(newUser);
-    return newUser ; 
-};
+/**
+ * Update a user from its ID.
+ *
+ * @param {integer} userId
+ * @param {Object} newDetails
+ * @returns {boolean|*}
+ */
+const update = (userId, newDetails) => {
+    let existingUser = null;
+    let userIndex;
 
-
-const get = (UserId)=>{
-       const findUser = users.find((user)=>{
-        if (UserId == user.id) {
-            return user;
+    users.map((user, index) => {
+        if (user.id === userId) {
+            existingUser = user;
+            userIndex = index;
         }
-        return null ; 
-       })
-};
+    });
 
-
-
-const update = (details)=>{
- 
-    
-};
-
-
-
-const remove = (UserId)=>{
-   const finduser = (users ,index)=>{
-    if (UserId== users.id) {
-        // splice 
-        users.splice(index,1);
-        return true ; 
+    if (!existingUser) {
+        return false;
     }
-    return false ; 
-   };
-      return doesUserExist = users.find(finduser); 
 
-};
+    const updatedUser = {
+        ...existingUser,
+        ...newDetails
+    };
 
+    users.splice(userIndex, 1, updatedUser);
 
+    return updatedUser;
+}
 
+/**
+ * Insert a user.
+ *
+ * @param {Object} details
+ * @returns {*&{id: number}}
+ */
+const insert = (details) => {
+    const newUser = {
+        id: users.length + 1,
+        ...details
+    };
 
+    users.push(newUser);
 
-export{
-    insert , 
+    return newUser;
+}
+
+/**
+ * Remove a user from its ID.
+ *
+ * @param {integer} userId
+ * @returns {*}
+ */
+const remove = (userId) => {
+    const deleteUser = (user, index) => {
+        if (user?.id === userId) {
+            // Remove the array element of the found user
+            users.splice(index, 1);
+        }
+    };
+
+    return users.find(deleteUser)
+}
+
+export default {
     get,
+    getAll,
+    update,
+    insert,
     remove,
-    update
-
 }

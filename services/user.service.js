@@ -1,31 +1,30 @@
-import user from "../models/presitence/user";
+const  user = require("../models/presitence/user");
 
-const addUser = (details)=>{
- return user.insert(details) ; 
+
+class userservice{
+   addUser = (details)=>{
+    return user.insert(details) ; 
+   }
+   
+   
+   
+    getUser = (UserId)=>{
+     return  user.get(UserId) ; 
+       }
+   
+   
+   
+    DeleteUser = (UserId)=>{
+      return user.remove(UserId) ; 
+       }
+   
+   
+        UpdateUser = (UserId)=>{
+          return user.update(UserId) ; 
+           }
+   
 }
 
 
 
-const getUser = (UserId)=>{
-  return  user.get(UserId) ; 
-    }
-
-
-
-const DeleteUser = (UserId)=>{
-   return user.remove(UserId) ; 
-    }
-
-
-    const UpdateUser = (UserId)=>{
-       return user.update(UserId) ; 
-        }
-
-
-
-export {
-    addUser , 
-    getUser,
-    DeleteUser,
-    UpdateUser
-}
+module.exports= userservice ; 
